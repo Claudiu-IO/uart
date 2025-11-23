@@ -1,4 +1,4 @@
-# 🛰️ UART-Vault: Secure Serial Communication in Hardware
+# 🛰️ UART-Vault: FPGA Secure Communication Module with Hardware Encryption 
 
 This project implements a secure UART (Universal Asynchronous Receiver-Transmitter) communication system in Verilog. It addresses the need for privacy in serial data transmission by integrating a lightweight XOR encryption layer directly into the hardware.
 
