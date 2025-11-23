@@ -1,10 +1,10 @@
 # 🛰️ UART-Vault: Secure Serial Communication in Hardware
 
-In a world of digital whispers, how can you be sure no one is listening? Standard serial communication, like UART, sends data as clear as day. This project, **UART-Vault**, provides a simple but effective answer: a lightweight, hardware-based encryption layer for your Verilog projects.
+This project implements a secure UART (Universal Asynchronous Receiver-Transmitter) communication system in Verilog. It addresses the need for privacy in serial data transmission by integrating a lightweight XOR encryption layer directly into the hardware.
 
-This isn't just a UART module; it's a blueprint for protecting data in motion, right at the hardware level. Before a single bit leaves the chip, it's encrypted. Upon arrival, it's seamlessly decrypted. Our demonstration shows a perfect loopback of secret data, all handled by synthesizable Verilog code ready for an FPGA.
+The design features a complete UART loopback, where data is encrypted before being sent by the UART transmitter and then decrypted upon reception by the UART receiver. This entire process is handled by synthesizable Verilog, making it suitable for FPGA implementations.
 
-## ✨ How It Works: The Secret Handshake
+## ✨ How It Works:
 
 The security model is elegant in its simplicity, using a dynamic XOR cipher.
 
@@ -45,7 +45,7 @@ gcc keygen.c -o keygen
 2.  **Assign the Leader:** Set `tb_uart_loopback.v` as the top-level simulation module.
 3.  **Run the Simulation:** Click `Run Simulation`.
 
-### Step 3: Verify the Mission
+## 3. Verify the Mission
 
 The testbench will transmit data, which is encrypted, looped back, and decrypted. You will see messages in the Tcl Console confirming that the data received perfectly matches the data sent, proving the secure communication loop is working.
 
