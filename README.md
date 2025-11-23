@@ -4,7 +4,7 @@ This project implements a secure UART (Universal Asynchronous Receiver-Transmitt
 
 The design features a complete UART loopback, where data is encrypted before being sent by the UART transmitter and then decrypted upon reception by the UART receiver. This entire process is handled by synthesizable Verilog, making it suitable for FPGA implementations.
 
-## ✨ How It Works: The Secret Handshake
+## ✨ How It Works:
 
 The security model is elegant in its simplicity, using a dynamic XOR cipher.
 
