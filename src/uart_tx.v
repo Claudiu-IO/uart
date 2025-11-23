@@ -1,26 +1,3 @@
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 11/16/2025 06:27:32 PM
-// Design Name: 
-// Module Name: uart_tx
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
-// Numele modulului si porturile (intrari/iesiri)
-// Acesta este "planul" de la Pasul 1.A
 module uart_tx
    #(parameter DBIT = 8,
      SB_TICK = 16) // # stop bit ticks
@@ -102,14 +79,22 @@ module uart_tx
                if (s_reg == 15)
                begin
                   s_next = 0;
-                  b_next = {1'b0, b_reg[DBIT - 1:1]}; // Right shift
+                  b_next = {1'b0, b_reg[DBIT - 1:1]};
                   if (n_reg == (DBIT - 1))
                      state_next = stop;
                   else
                      n_next = n_reg + 1;
                end
                else
+               begin
                   s_next = s_reg + 1;
+                  n_next = n_reg; // Keep n_reg stable while counting s_tick
+               end
+            else // if !s_tick
+            begin
+                s_next = s_reg;
+                n_next = n_reg;
+            end
          end
          stop:
          begin
